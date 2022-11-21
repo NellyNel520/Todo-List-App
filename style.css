@@ -34,7 +34,11 @@ html {
     margin-bottom: 20px;
     font-size: 80px;
     color: white;
+    font-family: 'Libre Baskerville', serif;
+    padding: 1rem;
   }
+
+
   
   svg {
     width: 64px;
@@ -84,6 +88,7 @@ html {
     content: '✓';
     font-size: 20px;
     display: none;
+    color: rgb(13, 206, 13);
   }
   
   .done .tick::before {
@@ -125,6 +130,7 @@ html {
     justify-content: center;
     display: none;
     padding: 2rem;
+    color: #071827;
   }
   
   /* Add this below the other styles */
