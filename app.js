@@ -1,6 +1,7 @@
 let todoItems = [];
 
 function renderTodo(todo) {
+    localStorage.setItem('todoItemsRef', JSON.stringify(todoItems));
   const list = document.querySelector('.js-todo-list');
   const item = document.querySelector(`[data-key='${todo.id}']`);
 
@@ -9,7 +10,7 @@ function renderTodo(todo) {
     item.remove();
     return
   }
-  
+
   const isChecked = todo.checked ? 'done': '';
   const node = document.createElement("li");
   node.setAttribute('class', `todo-item ${isChecked}`);
@@ -87,3 +88,13 @@ list.addEventListener('click', event => {
     deleteTodo(itemKey);
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const ref = localStorage.getItem('todoItemsRef');
+    if (ref) {
+      todoItems = JSON.parse(ref);
+      todoItems.forEach(t => {
+        renderTodo(t);
+      });
+    }
+  });
